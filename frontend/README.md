@@ -1,16 +1,105 @@
-# React + Vite
+# 🧰 Syntra Safety Defect Reporting System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal full-stack web app where **employees** can report safety defects and **admins** can view, manage, and update them.  
+Built as part of **The Syntra** coding challenge.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+**Frontend:** React.js + Axios + Tailwind CSS  
+**Backend:** Node.js + Express.js  
+**Database:** MongoDB (Mongoose ODM)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📂 Folder Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+syntra/
+│
+├── backend/
+│ ├── models/
+│ │ └── Defect.js
+│ ├── routes/
+│ │ └── defectRoutes.js
+│ ├── server.js
+│ └── .env
+│
+├── frontend/
+│ ├── src/
+│ │ ├── components/
+│ │ │ ├── EmployeeForm.jsx
+│ │ │ ├── EmployeeList.jsx
+│ │ │ └── AdminPanel.jsx
+│ │ ├── api/
+│ │ │ └── axiosInstance.js
+│ │ └── App.jsx
+│ └── package.json
+│
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone Repo
+```bash
+git clone https://github.com/anwerfaiz86/syntra-repository.git
+cd syntra
+2️⃣ Backend Setup
+bash
+Copy code
+cd backend
+npm install
+Create .env file inside backend/:
+
+ini
+Copy code
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+Run backend:
+
+bash
+Copy code
+npm start
+3️⃣ Frontend Setup
+bash
+Copy code
+cd ../frontend
+npm install
+npm run dev
+🌐 API Endpoints
+Method	Endpoint	Description
+POST	/api/defects	Create new defect
+GET	/api/defects	List all defects (Admin)
+GET	/api/defects?role=employee&id=<empId>	Get employee-specific defects
+PATCH	/api/defects/:id	Update defect status or notes
+GET	/api/defects/counts	(Optional) Summary counts
+
+💡 Features
+Employee defect reporting form
+
+Image upload support
+
+Admin dashboard for managing defects
+
+Status update & notes
+
+Real-time refresh/polling (optional)
+
+Clean folder structure
+
+Simple role toggle (Employee/Admin)
+
+🧾 Deliverables
+✅ Working app hosted or local
+
+✅ Short walkthrough video (2–5 min)
+
+✅ GitHub repo with clean commits
+
+✅ README with setup & scope
+
